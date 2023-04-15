@@ -12,3 +12,5 @@
 ![英単語の登録](img/stud-eng-api-reg-words.png)
 ## 英単語の取得
 ![英単語の取得](img/stud-eng-api-get-words.png)
+## 英単語の削除
+![英単語の削除](img/stud-eng-api-delete-words.png)
