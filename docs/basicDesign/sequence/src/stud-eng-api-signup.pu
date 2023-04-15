@@ -1,0 +1,22 @@
+@startuml
+actor Client
+participant StudEngAPI
+database DB
+hide footbox
+
+== ユーザー登録 ==
+
+Client -> StudEngAPI : ユーザー情報
+activate StudEngAPI
+  group 登録・トークン発行
+    StudEngAPI -> DB : ユーザー情報登録
+    activate DB
+
+    StudEngAPI <-- DB : 登録できたか確認
+    deactivate DB
+  end
+
+  Client <-- StudEngAPI : トークン発行
+    note right: JWT発行
+deactivate StudEngAPI
+@enduml

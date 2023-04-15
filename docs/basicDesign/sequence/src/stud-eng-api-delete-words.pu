@@ -1,0 +1,22 @@
+@startuml
+actor Client
+participant StudEngAPI
+database DB.words
+hide footbox
+
+== 英単語削除 ==
+
+Client -> StudEngAPI : 削除する英語
+activate StudEngAPI
+  group 英単語削除
+    StudEngAPI -> DB.words : 単語削除
+    activate DB.words
+
+    StudEngAPI <-- DB.words :
+    deactivate DB.words
+  end
+
+  Client <-- StudEngAPI : 削除できたか確認
+
+deactivate StudEngAPI
+@enduml
