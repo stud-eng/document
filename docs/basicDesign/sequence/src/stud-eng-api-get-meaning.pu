@@ -1,0 +1,21 @@
+@startuml
+actor Client
+participant StudEngAPI
+participant Weblio
+hide footbox
+
+== 英単語の意味をスクレイピング ==
+
+Client -> StudEngAPI : 英単語リスト
+activate StudEngAPI
+  group スクレイピング
+    StudEngAPI -> Weblio : 英単語のページを検索
+    activate Weblio
+
+    StudEngAPI <-- Weblio : スクレイプした情報を取得
+    deactivate Weblio
+  end
+
+  Client <-- StudEngAPI : 各単語の英語・日本語セットを返す
+deactivate StudEngAPI
+@enduml
