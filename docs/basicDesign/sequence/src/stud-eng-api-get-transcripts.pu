@@ -1,0 +1,30 @@
+@startuml
+actor Client
+participant StudEngAPI
+database DB.users
+participant YutubeDataAPIv3
+hide footbox
+
+== 動画の英字幕を取得 ==
+
+Client -> StudEngAPI : 動画URL
+activate StudEngAPI
+  group YoutubeAPIアクセスKey取得
+    StudEngAPI -> DB.users : APIkey取得
+    activate DB.users
+    StudEngAPI <-- DB.users : 
+    deactivate DB.users
+  end
+
+    
+  group 動画の字幕取得
+    StudEngAPI -> YutubeDataAPIv3 : 動画の字幕リクエスト
+    activate YutubeDataAPIv3
+
+    StudEngAPI <-- YutubeDataAPIv3 : 動画の字幕返却
+    deactivate YutubeDataAPIv3
+  end
+
+  Client <-- StudEngAPI : 動画の英語字幕を返す
+deactivate StudEngAPI
+@enduml
