@@ -8,3 +8,5 @@
 ![動画の英語字幕取得](img/stud-eng-api-get-transcripts.png)
 ## 英単語の意味取得
 ![英単語の意味取得](img/stud-eng-api-get-meaning.png)
+## 英単語の登録
+![英単語の登録](img/stud-eng-api-reg-words.png)

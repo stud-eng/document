@@ -1,0 +1,22 @@
+@startuml
+actor Client
+participant StudEngAPI
+database DB.words
+hide footbox
+
+== 英単語登録 ==
+
+Client -> StudEngAPI : 英語・意味リスト
+activate StudEngAPI
+  group 英単語登録
+    StudEngAPI -> DB.words : 単語登録
+    activate DB.words
+
+    StudEngAPI <-- DB.words :
+    deactivate DB.words
+  end
+
+  Client <-- StudEngAPI : 登録できたか確認
+
+deactivate StudEngAPI
+@enduml
