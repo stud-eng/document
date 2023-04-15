@@ -10,3 +10,5 @@
 ![英単語の意味取得](img/stud-eng-api-get-meaning.png)
 ## 英単語の登録
 ![英単語の登録](img/stud-eng-api-reg-words.png)
+## 英単語の取得
+![英単語の取得](img/stud-eng-api-get-words.png)
